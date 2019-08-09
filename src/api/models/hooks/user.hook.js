@@ -4,7 +4,7 @@ export default (User) => {
 
   // Trigger method's before save
   User.pre('save', async function (next) {
-
+    console.log('\n----\n --- Before save user --- \n----\n')
     let user = this;
 
     // if username from social network exists then new username!
@@ -26,20 +26,14 @@ export default (User) => {
       return next();
 
     // generate a salt
-    bcrypt.genSalt(10, (err, salt) => {
-      if (err)
-        return next(err);
-
-      // hash the password using our new salt
-      bcrypt.hash(user.password, salt, (err, hash) => {
-        if (err)
-          return next(err);
-
-        // override the cleartext password with the hashed one
-        user.password = hash;
-        next();
-      });
-    });
+    try {
+      const salt = await bcrypt.genSalt(10);
+      const hash = await bcrypt.hash(user.password, salt);
+      user.password = hash;
+      return next();
+    } catch (error) {
+      console.log(error);
+    }
 
   });
 

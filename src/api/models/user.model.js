@@ -1,5 +1,6 @@
 import mongoose from 'mongoose';
 import mongoosePaginate from 'mongoose-paginate';
+import bcrypt from 'bcrypt';
 const Schema = mongoose.Schema;
 
 const UserSchema = new Schema({
@@ -11,8 +12,7 @@ const UserSchema = new Schema({
     unique: true
   },
   password: {
-    type: String,
-    select: false
+    type: String
   },
   name: {
     type: String
