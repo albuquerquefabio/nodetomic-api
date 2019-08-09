@@ -4,7 +4,6 @@ export default (User) => {
 
   // Trigger method's before save
   User.pre('save', async function (next) {
-    console.log('\n----\n --- Before save user --- \n----\n')
     let user = this;
 
     // if username from social network exists then new username!
@@ -32,7 +31,7 @@ export default (User) => {
       user.password = hash;
       return next();
     } catch (error) {
-      console.log(error);
+      return next(error);
     }
 
   });
