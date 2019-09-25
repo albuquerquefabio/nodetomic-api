@@ -58,6 +58,12 @@ UserSchema.plugin(mongoosePaginate);
 
 require('./hooks/user.hook').default(UserSchema);
 require('./statics/user.static').default(UserSchema);
-require('./methods/user.method').default(UserSchema);
+UserSchema.methods = {
+  // Compare password
+  authenticate(candidatePassword) {
+    return bcrypt.compare(candidatePassword, this.password);
+  }
+
+};
 
 export default mongoose.model('User', UserSchema);

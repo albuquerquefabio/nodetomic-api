@@ -13,7 +13,7 @@ export default (User) => {
         User.findOne({
           username: username,
           provider: 'local'
-        }).select("+password").exec().then(user => {
+        }).exec().then(user => {
 
           if (!user)
             reject(`${username}' is not registered.`); // You can register user here
