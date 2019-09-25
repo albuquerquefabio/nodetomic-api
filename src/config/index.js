@@ -7,7 +7,7 @@ const CLIENT = '/client';
 export default {
   secret: `your_secret_key`, // Secret Key
   server: { // Express
-    ip: 'localhost',
+    ip: process.env.IP || '0.0.0.0' || 'localhost',
     port: 8000,
   },
   log: true, // show logs
