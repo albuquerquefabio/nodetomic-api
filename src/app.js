@@ -28,7 +28,9 @@ const app = express();
     // Info
     console.log(chalk.greenBright(`-------\nServer-> 
           mode: [${chalk.magentaBright(`${config.mode}`)}]
-          url: ${chalk.blueBright(`http://${config.server.ip}:${config.server.port}`)}\n-------`));
+          url: ${chalk.blueBright(`http://${config.server.ip}:${config.server.port}`)}
+          Socket.io: ${chalk.blueBright(`http://${config.server.ip}:${config['socket.io'].port}`)}\n-------`)
+    );
     // Ready!
     console.log(chalk.black.bgGreenBright(`>>nodetomic-api ready!<<`));
   });
