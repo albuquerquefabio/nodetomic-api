@@ -87,7 +87,7 @@ export default {
       callbackURL: '/auth/google/callback'
     },
     github: {
-      enabled: true,
+      enabled: false,
       clientID: '',
       clientSecret: '',
       callbackURL: '/auth/github/callback'

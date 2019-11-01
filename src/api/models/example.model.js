@@ -1,5 +1,6 @@
 import mongoose from 'mongoose';
 import mongoosePaginate from 'mongoose-paginate';
+import { registerEvents } from '../events/example.events';
 const Schema = mongoose.Schema;
 
 const ExampleSchema = new Schema({
@@ -12,7 +13,7 @@ const ExampleSchema = new Schema({
     required: [true, 'Language is required.']
   }
 });
-
+registerEvents(ExampleSchema);
 ExampleSchema.plugin(mongoosePaginate);
 
 export default mongoose.model('Example', ExampleSchema);
