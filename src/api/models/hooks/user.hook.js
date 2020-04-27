@@ -1,19 +1,23 @@
-import bcrypt from 'bcrypt';
+import bcrypt from "bcrypt";
 
 export default (User) => {
-
   // Trigger method's before save
-  User.pre('save', async function (next) {
+  User.pre("save", async function (next) {
     let user = this;
 
     // if username from social network exists then new username!
-    if (user.provider !== 'local' && (user.isNew || user.isModified('username'))) {
-
+    if (
+      user.provider !== "local" &&
+      (user.isNew || user.isModified("username"))
+    ) {
       let username = await new Promise((resolve, reject) => {
         (function calc(username) {
-          user.constructor.findOneByUsername(username)
-            .then(exists => exists ? calc(`${username}1`) : resolve(username))
-            .catch(err => reject(err));
+          user.constructor
+            .findOneByUsername(username)
+            .then((exists) =>
+              exists ? calc(`${username}1`) : resolve(username)
+            )
+            .catch((err) => reject(err));
         })(user.username);
       });
 
@@ -21,8 +25,7 @@ export default (User) => {
     }
 
     // only hash the password if it has been modified (or is new)
-    if (!user.isModified('password'))
-      return next();
+    if (!user.isModified("password")) return next();
 
     // generate a salt
     try {
@@ -33,17 +36,14 @@ export default (User) => {
     } catch (error) {
       return next(error);
     }
-
   });
 
   // Trigger method's after save
-  User.post('save', function (err, doc, next) {
-
-    if (err.name === 'MongoError' && err.code === 11000) {
+  User.post("save", function (err, doc, next) {
+    if (err.name === "MongoError" && err.code === 11000) {
       return next(`'username "${doc.username}" not available.'`);
     } else {
       return next(err);
     }
   });
-
 };
