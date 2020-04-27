@@ -52,7 +52,7 @@ export default {
     // MongoDB
     // uri: mongodb://username:password@host:port/database?options
     uri: `mongodb://localhost:27017/${DB_NAME}`,
-    options: {},
+    options: { useNewUrlParser: true },
     seed: {
       path: "/api/models/seeds/",
       list: [
