@@ -1,26 +1,26 @@
 export default [
   {
-    greet: "Hello World",
-    language: "English",
+    greet: 'Hello World',
+    language: 'English',
   },
   {
-    greet: "Hola Mundo",
-    language: "Spanish",
+    greet: 'Hola Mundo',
+    language: 'Spanish',
   },
   {
-    greet: "salut monde",
-    language: "French",
+    greet: 'salut monde',
+    language: 'French',
   },
   {
-    greet: "Hallo Welt",
-    language: "Germany",
+    greet: 'Hallo Welt',
+    language: 'Germany',
   },
   {
-    greet: "こんにちは",
-    language: "Japanese",
+    greet: 'こんにちは',
+    language: 'Japanese',
   },
   {
-    greet: "你好世界",
-    language: "Chinese",
+    greet: '你好世界',
+    language: 'Chinese',
   },
 ];

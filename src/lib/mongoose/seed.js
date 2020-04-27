@@ -1,4 +1,4 @@
-import chalk from "chalk";
+import chalk from 'chalk';
 
 export default (conn, config) => {
   return new Promise((resolve, reject) => {
@@ -15,7 +15,7 @@ export default (conn, config) => {
           .default;
         // plant seed
         switch (seed.plant) {
-          case "once":
+          case 'once':
             model.count({}, (err, count) => {
               if (count <= 0) {
                 model.collection.drop(() => {
@@ -29,7 +29,7 @@ export default (conn, config) => {
             });
             break;
 
-          case "always":
+          case 'always':
             model.collection.drop(() => {
               plant(model, data).then(() =>
                 i >= length - 1 ? resolve() : exec(i + 1)
@@ -37,7 +37,7 @@ export default (conn, config) => {
             });
             break;
 
-          case "never":
+          case 'never':
             i >= length - 1 ? resolve() : exec(i + 1);
             break;
           default:

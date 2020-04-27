@@ -1,8 +1,8 @@
-import path from "path";
-import fs from "fs";
-import express from "express";
-import favicon from "serve-favicon";
-import config from "../../config";
+import path from 'path';
+import fs from 'fs';
+import express from 'express';
+import favicon from 'serve-favicon';
+import config from '../../config';
 
 export default (app) => {
   // Paths 404 from url
@@ -12,23 +12,23 @@ export default (app) => {
 
   // Point static path to client by default
   let client = config.client;
-  let file = "index";
+  let file = 'index';
 
   // If not exits client, when set internal default
   if (!fs.existsSync(config.client)) {
     client = `${config.base}/views/default`;
     file = config.mode;
-    if (config["socket.io"].example) {
-      app.use("/socket", express.static(`${client}/socket.html`));
-      app.use("/token", express.static(`${client}/token.html`));
+    if (config['socket.io'].example) {
+      app.use('/socket', express.static(`${client}/socket.html`));
+      app.use('/token', express.static(`${client}/token.html`));
     }
   }
 
   app.use(express.static(client));
-  app.use(favicon(path.join(client, "favicon.ico")));
+  app.use(favicon(path.join(client, 'favicon.ico')));
 
   // Folder client
-  app.get("/*", (req, res) => {
+  app.get('/*', (req, res) => {
     res.sendFile(`${client}/${file}.html`);
   });
 

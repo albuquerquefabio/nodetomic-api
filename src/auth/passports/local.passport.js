@@ -1,13 +1,13 @@
-import passport from "passport";
-import { Strategy as LocalStrategy } from "passport-local";
-import User from "../../api/models/user.model";
+import passport from 'passport';
+import { Strategy as LocalStrategy } from 'passport-local';
+import User from '../../api/models/user.model';
 
 passport.use(
-  "local",
+  'local',
   new LocalStrategy(
     {
-      usernameField: "username",
-      passwordField: "password",
+      usernameField: 'username',
+      passwordField: 'password',
       //passReqToCallback: true
     },
     function (username, password, done) {

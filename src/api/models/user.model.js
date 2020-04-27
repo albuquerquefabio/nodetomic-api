@@ -1,12 +1,12 @@
-import mongoose from "mongoose";
-import mongoosePaginate from "mongoose-paginate";
-import bcrypt from "bcrypt";
+import mongoose from 'mongoose';
+import mongoosePaginate from 'mongoose-paginate';
+import bcrypt from 'bcrypt';
 const Schema = mongoose.Schema;
 
 const UserSchema = new Schema({
   username: {
     type: String,
-    required: [true, "Username is required."],
+    required: [true, 'Username is required.'],
     unique: true,
   },
   password: {
@@ -23,17 +23,17 @@ const UserSchema = new Schema({
   photo: String,
   provider: {
     type: String,
-    required: [true, "Provider is required."],
-    default: "local",
+    required: [true, 'Provider is required.'],
+    default: 'local',
   },
   roles: {
     type: Array,
-    default: ["user"],
+    default: ['user'],
   },
   status: {
     type: Number,
     default: 1,
-    required: [true, "Status is required."],
+    required: [true, 'Status is required.'],
   },
   date: {
     type: Date,
@@ -48,12 +48,12 @@ const UserSchema = new Schema({
   },
 });
 
-UserSchema.path("username").index({ unique: true });
+UserSchema.path('username').index({ unique: true });
 
 UserSchema.plugin(mongoosePaginate);
 
-require("./hooks/user.hook").default(UserSchema);
-require("./statics/user.static").default(UserSchema);
+require('./hooks/user.hook').default(UserSchema);
+require('./statics/user.static').default(UserSchema);
 UserSchema.methods = {
   // Compare password
   authenticate(candidatePassword) {
@@ -61,4 +61,4 @@ UserSchema.methods = {
   },
 };
 
-export default mongoose.model("User", UserSchema);
+export default mongoose.model('User', UserSchema);

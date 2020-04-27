@@ -1,7 +1,7 @@
-import passport from "passport";
-import { Strategy as BitbucketStrategy } from "passport-bitbucket";
-import User from "../../api/models/user.model";
-import config from "../../config";
+import passport from 'passport';
+import { Strategy as BitbucketStrategy } from 'passport-bitbucket';
+import User from '../../api/models/user.model';
+import config from '../../config';
 
 passport.use(
   new BitbucketStrategy(
@@ -15,7 +15,7 @@ passport.use(
       social.email = profile._json.email;
       social.photo = profile._json.links.avatar.href;
 
-      User.loginBySocial("bitbucket", social)
+      User.loginBySocial('bitbucket', social)
         .then((user) => done(null, user))
         .catch((err) => done(err));
     }

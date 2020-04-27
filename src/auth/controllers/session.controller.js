@@ -1,5 +1,5 @@
-import { result, notFound, error } from "express-easy-helper";
-import { call } from "../../lib/redis-jwt";
+import { result, notFound, error } from 'express-easy-helper';
+import { call } from '../../lib/redis-jwt';
 
 // List of sessions by user
 export function list(req, res) {
@@ -16,7 +16,7 @@ export function list(req, res) {
 // Destroy a session
 export function destroy(req, res) {
   return call
-    .destroy(`${req.user._id}:${req.params.id.split(":")[1]}`)
+    .destroy(`${req.user._id}:${req.params.id.split(':')[1]}`)
     .then(notFound(res))
     .then(result(res))
     .catch(error(res));

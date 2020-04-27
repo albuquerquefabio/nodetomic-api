@@ -1,6 +1,6 @@
-import { result, notFound, error } from "express-easy-helper";
-import { emit } from "../sockets/example.socket";
-import Example from "../models/example.model";
+import { result, notFound, error } from 'express-easy-helper';
+import { emit } from '../sockets/example.socket';
+import Example from '../models/example.model';
 
 // List Example's
 export function list(req, res) {
@@ -58,9 +58,9 @@ export function destroy(req, res) {
 // Emit animation with socket!
 export function animation(req, res) {
   try {
-    emit("animation", req.params.id);
-    return result(res, "Socket emitted!");
+    emit('animation', req.params.id);
+    return result(res, 'Socket emitted!');
   } catch (err) {
-    return error(res, "No client with event...");
+    return error(res, 'No client with event...');
   }
 }

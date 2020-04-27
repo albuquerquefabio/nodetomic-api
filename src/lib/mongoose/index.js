@@ -1,7 +1,7 @@
-import mongoose from "mongoose";
-import chalk from "chalk";
-import fs from "fs";
-import config from "../../config";
+import mongoose from 'mongoose';
+import chalk from 'chalk';
+import fs from 'fs';
+import config from '../../config';
 
 const uri = config.mongoose.uri;
 const opts = config.mongoose.options;
@@ -14,12 +14,12 @@ export async function connect() {
     const db = mongoose.connection;
 
     // Events
-    db.on("disconnected", (err) => {
+    db.on('disconnected', (err) => {
       console.log(chalk.redBright(`MongoDB-> disconnected: ${uri}`));
       connect();
     });
 
-    db.on("reconnected", (err) => {
+    db.on('reconnected', (err) => {
       console.log(chalk.greenBright(`MongoDB-> reconnected: ${uri}`));
     });
 
@@ -32,12 +32,12 @@ export async function connect() {
     let models = fs.readdirSync(`${config.base}/api/models`);
 
     for (let i in models) {
-      if (models[i].indexOf(".js") > -1) {
+      if (models[i].indexOf('.js') > -1) {
         require(`${config.base}/api/models/${models[i]}`);
       }
     }
     // Plant seed
-    await require("./seed").default(db, config);
+    await require('./seed').default(db, config);
   } catch (err) {
     console.log(
       chalk.redBright(`MongoDB-> connection error: ${uri} details->${err}`)

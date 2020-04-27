@@ -1,5 +1,5 @@
-import { result, notFound, error } from "express-easy-helper";
-import User from "../models/user.model";
+import { result, notFound, error } from 'express-easy-helper';
+import User from '../models/user.model';
 
 // Create a user
 export function create(req, res) {
@@ -23,7 +23,7 @@ export function read(req, res) {
       social: 0,
     }
   )
-    .select("-email")
+    .select('-email')
     .exec()
     .then(notFound(res))
     .then(result(res))
@@ -68,7 +68,7 @@ export function me(req, res) {
 // List of user's
 export function listAdmin(req, res) {
   return User.find({})
-    .select("-social")
+    .select('-social')
     .exec()
     .then(notFound(res))
     .then(result(res))

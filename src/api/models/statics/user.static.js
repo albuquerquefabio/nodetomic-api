@@ -7,7 +7,7 @@ export default (User) => {
 
         User.findOne({
           username: username,
-          provider: "local",
+          provider: 'local',
         })
           .exec()
           .then((user) => {
@@ -35,7 +35,7 @@ export default (User) => {
 
         User.findOne({
           provider,
-          "social.id": profile.id,
+          'social.id': profile.id,
         })
           .exec()
           .then((user) => {
@@ -44,14 +44,14 @@ export default (User) => {
                 provider: provider,
                 name: profile.displayName,
                 username: profile.username,
-                email: profile.email || "",
-                photo: profile.photo || "",
-                "social.id": profile.id,
-                "social.info": profile._json,
+                email: profile.email || '',
+                photo: profile.photo || '',
+                'social.id': profile.id,
+                'social.info': profile._json,
               });
             } else {
               user.social.info = profile._json;
-              user.photo = profile.photo || "";
+              user.photo = profile.photo || '';
             }
 
             user.lastLogin = Date.now();

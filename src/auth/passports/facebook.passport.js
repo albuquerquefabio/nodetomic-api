@@ -1,7 +1,7 @@
-import passport from "passport";
-import { Strategy as FacebookStrategy } from "passport-facebook";
-import User from "../../api/models/user.model";
-import config from "../../config";
+import passport from 'passport';
+import { Strategy as FacebookStrategy } from 'passport-facebook';
+import User from '../../api/models/user.model';
+import config from '../../config';
 
 passport.use(
   new FacebookStrategy(
@@ -15,7 +15,7 @@ passport.use(
       social.email = profile.emails[0].value;
       social.photo = `http://graph.facebook.com/${profile.id}/picture?type=square`;
 
-      User.loginBySocial("facebook", social)
+      User.loginBySocial('facebook', social)
         .then((user) => done(null, user))
         .catch((err) => done(err));
     }

@@ -1,7 +1,7 @@
-import passport from "passport";
-import { OAuth2Strategy as GoogleStrategy } from "passport-google-oauth";
-import User from "../../api/models/user.model";
-import config from "../../config";
+import passport from 'passport';
+import { OAuth2Strategy as GoogleStrategy } from 'passport-google-oauth';
+import User from '../../api/models/user.model';
+import config from '../../config';
 
 passport.use(
   new GoogleStrategy(
@@ -14,7 +14,7 @@ passport.use(
       let social = profile;
       social.photo = profile._json.image.url;
 
-      User.loginBySocial("google", social)
+      User.loginBySocial('google', social)
         .then((user) => done(null, user))
         .catch((err) => done(err));
     }

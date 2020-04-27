@@ -1,50 +1,50 @@
-import path from "path";
+import path from 'path';
 
 const APP_NAME = `your-app-name`;
 const DB_NAME = `your-app-name-dev`;
-const CLIENT = "/client";
+const CLIENT = '/client';
 
 export default {
   secret: `your_secret_key`, // Secret Key
   server: {
     // Express
-    ip: process.env.IP || "0.0.0.0" || "localhost",
+    ip: process.env.IP || '0.0.0.0' || 'localhost',
     port: 8000,
   },
   log: true, // show logs
   // Roles: if a user has multiple roles, will take the time of the greater role
   roles: [
     {
-      role: "user",
-      ttl: "7200 minutes",
+      role: 'user',
+      ttl: '7200 minutes',
     },
     {
-      role: "admin",
-      ttl: "5 days",
+      role: 'admin',
+      ttl: '5 days',
     },
   ],
   path: {
-    disabled: "/:url(api|assets|auth|config|lib|views)/*", // paths 404
+    disabled: '/:url(api|assets|auth|config|lib|views)/*', // paths 404
   },
-  "socket.io": {
+  'socket.io': {
     // Socket.io
     port: 8001, // public port listen, change also in views/default/demo.js
     example: true, // router -> http://localhost:8000/socket
     redis: {
       // Redis config
-      host: "127.0.0.1",
+      host: '127.0.0.1',
       port: 6379,
     },
   },
-  "redis-jwt": {
+  'redis-jwt': {
     // Sessions
     //host: '/tmp/redis.sock', //unix domain
-    host: "127.0.0.1", //can be IP or hostname
+    host: '127.0.0.1', //can be IP or hostname
     port: 6379, // port
     maxretries: 10, //reconnect retries, default 10
     //auth: '123', //optional password, if needed
     db: 0, //optional db selection
-    secret: "secret_key", // secret key for Tokens!
+    secret: 'secret_key', // secret key for Tokens!
     multiple: true, // single or multiple sessions by user
     kea: false, // Enable notify-keyspace-events KEA
   },
@@ -54,17 +54,17 @@ export default {
     uri: `mongodb://localhost:27017/${DB_NAME}`,
     options: { useNewUrlParser: true },
     seed: {
-      path: "/api/models/seeds/",
+      path: '/api/models/seeds/',
       list: [
         {
-          file: "user.seed",
-          schema: "User",
-          plant: "once", //  once - always - never
+          file: 'user.seed',
+          schema: 'User',
+          plant: 'once', //  once - always - never
         },
         {
-          file: "example.seed",
-          schema: "Example",
-          plant: "once",
+          file: 'example.seed',
+          schema: 'Example',
+          plant: 'once',
         },
       ],
     },
@@ -76,37 +76,37 @@ export default {
     },
     facebook: {
       enabled: false,
-      clientID: "",
-      clientSecret: "",
-      callbackURL: "/auth/facebook/callback",
+      clientID: '',
+      clientSecret: '',
+      callbackURL: '/auth/facebook/callback',
     },
     twitter: {
       enabled: false,
-      clientID: "",
-      clientSecret: "",
-      callbackURL: "/auth/twitter/callback",
+      clientID: '',
+      clientSecret: '',
+      callbackURL: '/auth/twitter/callback',
     },
     google: {
       enabled: false,
-      clientID: "",
-      clientSecret: "",
-      callbackURL: "/auth/google/callback",
+      clientID: '',
+      clientSecret: '',
+      callbackURL: '/auth/google/callback',
     },
     github: {
       enabled: false,
-      clientID: "",
-      clientSecret: "",
-      callbackURL: "/auth/github/callback",
+      clientID: '',
+      clientSecret: '',
+      callbackURL: '/auth/github/callback',
     },
     bitbucket: {
       enabled: false,
-      clientID: "",
-      clientSecret: "",
-      callbackURL: "/auth/bitbucket/callback",
+      clientID: '',
+      clientSecret: '',
+      callbackURL: '/auth/bitbucket/callback',
     },
   },
   // globals
-  mode: process.env.NODE_ENV || "development", // mode
+  mode: process.env.NODE_ENV || 'development', // mode
   name: APP_NAME, // name
   node: parseInt(process.env.NODE_APP_INSTANCE) || 0, // node instance
   root: path.normalize(`${__dirname}/../..`), // root

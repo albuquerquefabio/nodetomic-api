@@ -1,13 +1,13 @@
-import { unauthorized, forbidden } from "express-easy-helper";
-import { has } from "role-calc";
-import { r } from "../../lib/redis-jwt";
-import User from "../../api/models/user.model";
+import { unauthorized, forbidden } from 'express-easy-helper';
+import { has } from 'role-calc';
+import { r } from '../../lib/redis-jwt';
+import User from '../../api/models/user.model';
 
 // VerifyToken
 export function mw(requiredRoles) {
   return async (req, res, next) => {
     // Extract Token
-    let token = req.headers["authorization"];
+    let token = req.headers['authorization'];
 
     if (token) {
       // Bearer
@@ -18,7 +18,7 @@ export function mw(requiredRoles) {
       if (!session) return next(forbidden(req.res));
 
       // Extract info user from MongoDB
-      let _user = await User.findById(session.id).select("-social").exec();
+      let _user = await User.findById(session.id).select('-social').exec();
       if (!_user) return next(unauthorized(req.res));
 
       // If id's not equals
