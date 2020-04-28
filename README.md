@@ -1,6 +1,6 @@
-# <img src="http://i.imgur.com/usoSYjY.png" width="50" /> Nodetomic Api 
+# <img src="http://i.imgur.com/usoSYjY.png" width="50" /> Nodetomic Api
 
-[![Codacy Badge](https://api.codacy.com/project/badge/Grade/f5084c4bad544b2586e3e973c8e3a336)](https://www.codacy.com/app/kevoj/nodetomic-api?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=kevoj/nodetomic-api&amp;utm_campaign=Badge_Grade) [![NPM version](https://badge.fury.io/js/nodetomic-api.svg)](https://npmjs.org/package/nodetomic-api) [![Build Status](https://travis-ci.org/kevoj/nodetomic-api.svg?branch=master)](https://travis-ci.org/kevoj/nodetomic-api) [![dependencies Status](https://david-dm.org/kevoj/nodetomic-api/status.svg)](https://david-dm.org/kevoj/nodetomic-api) [![devDependencies Status](https://david-dm.org/kevoj/nodetomic-api/dev-status.svg)](https://david-dm.org/kevoj/nodetomic-api?type=dev) [![Gitter chat](https://img.shields.io/gitter/room/kevoj/scaling-fullstack.svg)](https://gitter.im/scaling-fullstack/Lobby) [![GitHub license](https://img.shields.io/badge/license-MIT-brightgreen.svg?style=flat-square)](https://raw.githubusercontent.com/kevoj/nodetomic-api/master/LICENSE) [![Downloads](https://img.shields.io/npm/dt/nodetomic-api.svg?style=flat-square)](https://npmjs.org/package/nodetomic-api)
+[![Codacy Badge](https://api.codacy.com/project/badge/Grade/f5084c4bad544b2586e3e973c8e3a336)](https://www.codacy.com/app/kevoj/nodetomic-api?utm_source=github.com&utm_medium=referral&utm_content=kevoj/nodetomic-api&utm_campaign=Badge_Grade) [![NPM version](https://badge.fury.io/js/nodetomic-api.svg)](https://npmjs.org/package/nodetomic-api) [![Build Status](https://travis-ci.org/kevoj/nodetomic-api.svg?branch=master)](https://travis-ci.org/kevoj/nodetomic-api) [![dependencies Status](https://david-dm.org/albuquerquefabio/nodetomic-api/status.svg)](https://david-dm.org/albuquerquefabio/nodetomic-api) [![devDependencies Status](https://david-dm.org/albuquerquefabio/nodetomic-api/dev-status.svg)](https://david-dm.org/albuquerquefabio/nodetomic-api?type=dev) [![Gitter chat](https://img.shields.io/gitter/room/kevoj/scaling-fullstack.svg)](https://gitter.im/scaling-fullstack/Lobby) [![GitHub license](https://img.shields.io/badge/license-MIT-brightgreen.svg?style=flat-square)](https://raw.githubusercontent.com/kevoj/nodetomic-api/master/LICENSE) [![Downloads](https://img.shields.io/npm/dt/nodetomic-api.svg?style=flat-square)](https://npmjs.org/package/nodetomic-api)
 
 > RESTful API Nodejs designed for horizontal scalability with support for cluster, based on Express, MongoDB, Redis, JWT, Socket.io, Passport.
 
@@ -35,7 +35,6 @@ If you want, the **swagger** version is also available: <a href="https://github.
 
 View horizontal scaling representation image with nodetomic-api <a href="https://github.com/kevoj/nodetomic-api/wiki/1.-Horizontal-scalability">HERE!</a>
 
-
 ### Structure
 
 <pre> 
@@ -59,21 +58,23 @@ View horizontal scaling representation image with nodetomic-api <a href="https:/
 |   `-- socket.io
 |-- views
 `-- app.js
-</pre> 
+</pre>
 
 ## Preview
 
 ##### Development
+
 ![Imgur](https://i.imgur.com/brGk8Qt.png)
 
 ##### Production
+
 ![Imgur](https://i.imgur.com/2KLfEUq.png)
 
 ## Requirements
 
 - [Nodejs](https://nodejs.org) >= **6.x.x** (Recommended **9.x.x**)
-- [MongoDB](https://www.mongodb.com)  >= **3.x.x**
-- [Redis](https://redis.io)  >= **3.x.x** (Recommended **4.x.x**)
+- [MongoDB](https://www.mongodb.com) >= **3.x.x**
+- [Redis](https://redis.io) >= **3.x.x** (Recommended **4.x.x**)
 
 ## Installation
 
@@ -95,7 +96,7 @@ yarn add nodetomic-api --ignore-engines
 
 ### Start
 
-**Command:** `npm start` 
+**Command:** `npm start`
 
 **Description:** Start the project in development mode
 
