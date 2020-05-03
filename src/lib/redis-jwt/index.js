@@ -21,6 +21,7 @@ export function connect() {
 
     r.on('error', (err) => {
       console.log(chalk.redBright(err));
+      reject();
     });
   });
 }
