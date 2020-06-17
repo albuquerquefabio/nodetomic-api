@@ -2,6 +2,11 @@ import { result, notFound, error } from 'express-easy-helper';
 import { emit } from '../sockets/example.socket';
 import Example from '../models/example.model';
 
+import config from '../../config';
+
+import ioEmitter from 'socket.io-emitter';
+const io = ioEmitter(config['socket.io'].redis);
+
 // List Example's
 export function list(req, res) {
   return Example.find()
@@ -12,8 +17,14 @@ export function list(req, res) {
 }
 
 // Create a Example
-export function create(req, res) {
-  return Example.create(req.body).then(result(res, 201)).catch(error(res));
+export async function create(req, res) {
+  try {
+    const example = await Example.create(req.body);
+    io.emit('example:add', example);
+    result(res, example);
+  } catch (err) {
+    error(res);
+  }
 }
 
 // read a Example
